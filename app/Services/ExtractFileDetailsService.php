@@ -16,6 +16,7 @@ class ExtractFileDetailsService
     public function get_files_and_details(): array
     {
         $files = Storage::files('uploads');
+        $uploads = [];
 
         foreach ($files as $file) {
             $path = Storage::path($file);
@@ -31,11 +32,13 @@ class ExtractFileDetailsService
                 'date' => date('Y-m-d g:i a', $timestamp)
             ];
         }
-
-        // Sort files by timestamp
-        usort($uploads, function ($a, $b) {
-            return $a['timestamp'] <=> $b['timestamp'];
-        });
+        
+        if ( !empty($uploads) ) {
+            // Sort files by timestamp
+            usort($uploads, function ($a, $b) {
+                return $a['timestamp'] <=> $b['timestamp'];
+            });
+        }
 
         return $uploads;
     }
