@@ -1,3 +1,16 @@
+## Requirements
+
+This project requires:
+- PHP >= 8.2.x
+- MySQL >= 5.7
+- Web server (Apache, Nginx or integrated PHP web server for testing)
+- Composer
+- Node/NPM
+
+If required PHP extensions are missing, `composer` will tell you about the missing
+dependencies.
+
+
 ## Installation Guide
 
 - clone this repo to your local machine and change directory in your terminal to project root.
@@ -10,7 +23,7 @@
 - run `php artisan migrate`
 - run `php artisan storage:link`
 - run `php artisan reverb:install`
-- you can leave all the `REVERB` and `VITE` environments as it is except `REVERB_HOST`. change the `REVERB_HOST` to your domain for e.g. if you're using "http://127.0.0.1", `REVERB_HOST` should be `127.0.0.1`
+- change the `REVERB_HOST` to your domain for e.g. if you're using "http://127.0.0.1", `REVERB_HOST` should be `127.0.0.1`
 - in a new terminal, run `php artisan reverb:start` to start the websocket and keep it running
 - in another new terminal, run `php artisan queue:work` to start laravel queue workers and keep it running
 - run `npm run build`. if needed, run `npm run dev`
